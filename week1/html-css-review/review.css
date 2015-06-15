@@ -1,0 +1,29 @@
+/* HTML tag selector -> tagname */
+h1 }
+	font-size:50px;
+}
+
+/* Class selector -> .classname */
+.sub-heading{
+	color : red;
+}
+
+/* Select elements with BOTH classes */
+.sub-heading.clicked {
+	color : blue;
+}
+
+/* ID Selector -> #idname */
+#main-heading{
+	color : green;
+}
+
+/* Direct child selector -> parent > child */
+.main-content > p {
+	font-size:6px;
+}
+
+/* Indirect child selector (includes any amount of nesting) -> parent child */
+.main-content p {
+	color:yellow;
+}
