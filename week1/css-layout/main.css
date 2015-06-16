@@ -1,0 +1,122 @@
+/*It's a good practice to always use border-box*/
+/** {
+	box-sizing: border-box;
+}*/
+.box {
+	height: 100px;
+	width: 100px;
+	background-color:green;
+	padding: 10px;
+	border: 2px solid black;
+	margin: 10px;
+	display:inline-block;
+
+}
+
+.border-box {
+	/*This box's width includes its padding and border*/
+	box-sizing: border-box;
+}
+
+.relative {
+
+	position: relative;
+	top: 400px
+}
+
+.relative:hover {
+	/*Hoverable where it visually appears, not where it takes up space.*/
+	background-color: blue;
+}
+
+.navbar {
+	background-color:peachpuff;
+	position: fixed;
+	/*Fixed elements are positioned relative to the window*/
+	height: 40px;
+	width: 100%;
+}
+
+.container {
+	margin-top: 200px;
+	height: 500px;
+	width: 500px;
+	background-color:gray;
+	/*Relatively positioned for its absolute position child.*/
+	position: relative;
+}
+
+.inner {
+	display:inline-block;
+	background-color: red;
+	height: 50px;
+	width: 50px;
+	/*positioned relative to .container, because .container is a positioned ancestor*/
+	position: absolute;
+	top:30px;
+	right: 30px
+}
+
+.none {
+	/* does not render, doesn't even take up space*/
+	display:none;
+}
+
+.block {
+	background-color: red;
+	height: 50px;
+	margin: 10px;
+}
+
+.media-image {
+	float: left;
+}
+
+.media-text {
+	/*clear: both;*/
+	/* cleared */
+	height: 200px;
+	/*overflow auto creates a block formatting context*/
+	overflow:auto;
+	margin-left:20px;
+
+}
+
+.float-container {
+	background-color:green;
+	overflow: hidden;
+		
+}
+
+.floating {
+	float: left;
+	height:50px;
+	width:50px;
+	background-color:red;
+	margin:10px
+}
+
+.red {
+	background-color: red;
+}
+.green {
+	background-color: green;
+}
+.header-contain {
+	overflow: hidden;
+}
+
+.left {
+	background-color: blue;
+	float:left;
+	width:75px;
+}
+.right {
+	background-color: red;
+	float: right;
+	width:75px;
+}
+
+.content {
+	overflow: hidden;
+}
