@@ -1,0 +1,39 @@
+.block {
+    background-color:green;
+    height: 50px;
+    width: 200px;
+    /*margin auto only works on block level elements*/
+    margin: auto;
+}
+
+.container {
+    /*text-align:center only works on the parent of inline/inline-block elements*/
+    background-color: blue;
+    line-height:100vh;
+    text-align: center;
+    height: 100vh;
+}
+
+.inline-block {
+    display: inline-block;
+    vertical-align: middle;
+    height: 50px;
+    width: 200px;
+    background-color:green;
+    /*margin auto does nothing here*/
+    margin: auto;
+}
+
+.line {
+    height: 200px;
+    line-height: 200px;
+    background-color: green;
+}
+
+.box {
+    height: 50px;
+    width: 50px;
+    display:inline-block;
+    background-color: blue;
+    vertical-align: middle;
+}
