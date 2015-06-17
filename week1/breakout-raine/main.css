@@ -1,0 +1,56 @@
+* { box-sizing: border-box; }
+body {
+  font-family: "Helvetica Neue";
+}
+
+.fridge {
+  /* RR GG BB */
+  /*background-color: #f0f33a;*/
+  background-color: silver;
+  width: 250px;
+  height: 400px;
+  border: solid 2px black;
+  padding: 5px;
+  position: relative;
+}
+
+.poster {
+  background-color: lime;
+  width: 70%;
+  height: 80%;
+  margin: auto;
+  position: relative;
+}
+
+.energy-star {
+  background-color: blue;
+  border: solid 2px white;
+  color: white;
+  width: 20px;
+  height: 20px;
+}
+
+.magnet {
+  background-color: black;
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  margin: 20px 20px 0;
+/*  margin: top right bottom left
+  margin: top right/left bottom
+  margin: top/bottom right/left
+  margin: top/right/bottom/left
+*/}
+
+/* absolute elements with coordinates are positioned relative to the nearest positioned (non-static) ancestor. */
+.left {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.right {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
