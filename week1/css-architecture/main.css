@@ -1,0 +1,129 @@
+.button {
+	width:200px;
+	height:50px;
+	padding:10px;
+	background-color:red;
+}
+
+.box {
+	width:400px;
+	height:400px;
+}
+
+.default-box {
+	border:solid 1px black;
+}
+
+.important-box {
+	border:solid 5px blue;
+}
+
+
+
+.important-box, .other-box{
+	/*Selects each class seperated by comma*/
+	 
+}
+
+
+.important-box.really-important {
+	 /*Multi-class selector.  Selects elements with all included classes */
+	border:solid 20px blue;
+	
+}
+
+.important-box.really-important:hover{
+	/*More specific than multi-class selector*/
+	border:solid 20px green;
+}
+
+
+/*.grey-box-shadow {
+	box-shadow: 2px 2px 2px lightgrey;
+}
+*/
+
+
+
+/*.widget {
+	position:absolute;
+	top:0;
+	left:10px;
+	height:20px;
+	width:20px;
+	background-color:grey;
+}*/
+
+
+.news-article {
+	
+}
+
+.news-title{
+	
+}
+
+.news-author{
+	
+}
+
+.news-content{
+	
+}
+.profile-picture{
+	width:150px;
+	height:150px;
+}
+
+
+.profile > .profile-avatar > .profile-picture {
+	/* Highly Specific and too tightly coupled to structure */
+}
+.profile .profile-content{
+	/*A little specific for our purposes and structure.  Not competing with other profile-content elements */
+}
+
+.profile-name{
+	color:black;
+}
+
+.profile .profile-content p{
+	/* Selector is too specific and tightly coupled to structure */
+	color:peachpuff;
+	
+}
+
+
+
+.profile-name:before {
+	/* Using pseudoelement for content */
+	content:'R';
+	font-size:60px;
+}
+
+
+.profile-name-bigletter {
+	font-size:60px;	
+}
+
+
+.profile-name ~ .profile-bio {
+	/*General Sibling Selector*/
+}
+
+.profile-name + .profile-bio {
+	/*Adjacent sibling selector*/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
