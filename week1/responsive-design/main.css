@@ -1,0 +1,83 @@
+html {
+	font-size:24px;
+}
+
+/*Font Styles*/
+/*.main-header {
+	font-size : 36px;
+}
+
+.subheader {
+	font-size: 0.5em;
+}
+
+.alternative-subheader {
+	font-size: 1rem;
+}
+*/
+
+.column-container {
+	overflow: hidden;
+}
+
+/* Selects elements with a class that begins with 'col-' */
+[class*='col-'] {
+	float:left;
+	min-height:1px;
+	width:100%;
+}
+
+.col-1-2 {
+	/*float: left;*/
+	/*width:50%;*/
+	/*width:100%;*/
+	background-color:red;
+	/*min-height:1px;*/
+}
+
+.col-2-3 {
+	/*float:left;*/
+	/*width:50%;*/
+	/*width:100%;*/
+	background-color:blue;
+	/*min-height:1px;*/
+	
+}
+
+.col-spacing {
+	/*float:left;*/
+	width:0%;
+	background-color:peru;
+	/*min-height:1px;*/
+}
+
+/*Media Queries*/
+
+/*Minimum width media query*/
+/*@media screen and (min-width:200px){}*/
+
+/*Maximum width media query*/
+/*@media screen and (max-width:400px){}*/
+
+/*compound media query*/
+/*@media screen and (min-width:200px) and (max-width:400px) {}*/
+
+
+@media screen and (min-width:300px) {
+	.col-1-2 {
+		width:50%;
+	}
+	.col-2-3 {
+		width:66%;
+	}
+
+}
+
+@media screen and (min-width:600px) {
+	/*.col-1, .col-2 {
+		width:33%;
+	}*/
+	/*.col-spacing {
+		width:16%;
+	}*/
+}
