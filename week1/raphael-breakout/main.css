@@ -1,0 +1,42 @@
+.box {
+    height: 150px;
+    width: 150px;
+    position:absolute;
+
+}
+
+.top {
+    background-color: peachpuff;
+    left: 10px;
+    z-index:1;
+}
+
+.middle {
+    background-color: rebeccapurple;
+    left: 50px;
+    z-index: 1;
+}
+
+.bottom {
+    background-color: #ed8287;
+    left: 100px;
+    z-index:10;
+}
+
+.container-top {
+    z-index: 10;
+    position: relative;
+    height: 200px;
+    display:inline-block;
+}
+.container-top:hover {
+    visibility: hidden;
+}
+
+.container-bottom {
+    z-index:1;
+    height: 200px;
+    position: relative;
+    left: 180px;
+    display:inline-block;
+}

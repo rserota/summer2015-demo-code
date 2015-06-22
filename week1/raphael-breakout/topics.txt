@@ -1,0 +1,9 @@
+z-index
+forking, branching, git stuff
+install packages in sublime (emmet, etc)
+css best practices, class naming, specificity
+brief intro to css preprocessors
+HTML5 semantic elements (article, section, etc)
+cross browser compatibility, CSS3 specific properties / mobile first 
+columns
+flexbox
