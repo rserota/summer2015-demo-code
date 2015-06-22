@@ -88,3 +88,67 @@ else if ( age >= 18 && (( country === 'Ireland' ) || ( country === 'Norway' )) )
 // }
 // type coercion
 // alert('Will you be served? ' + canDrink);
+
+// Array literal
+var days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
+// console.log(days.length)
+
+// access individual elements with bracket notation
+// console.log(days[1]);
+// i++
+// i+=1
+// i = i + 1
+// for ( var i = 0; i < days.length; i++ ) {
+//     if ( days[i] === 'Saturday' ) {
+//         alert('Party!')
+//     }
+//     else if ( days[i] === 'Sunday' ) {
+//         alert('Take a nap.')
+//     }
+//     else {
+//         alert('work work work...')
+//     }
+// }
+
+// days[0] = 'moooonnnddaaaaayyyy';
+// days.push('RaphaelDay', 2);
+// days[7] = 'RaphaelDay' // this is kind of confusing
+
+// days.pop(2);
+
+// console.log(days);
+
+// Object literal
+// name:value pair.  or key:value pair.
+var sharkNado = {
+    title  : 'Sharknado II',
+    genre  : 'Science Fiction',
+    rating : 8,
+};
+var HTTM = {
+    title  : 'Hot Tub Time-Machine',
+    genre  : 'Historical autiobiography',
+    rating : 11,
+}
+var movies = [];
+movies.push(sharkNado);
+movies.push(HTTM);
+
+console.log(movies)
+// HTTM['title']
+
+// var property = prompt('Which property do we want to check?');
+// console.log(HTTM.property) // this won't work
+
+// bracket notation is the only way to look up dynamic properties on an object
+// console.log(HTTM[property]);
+
+// movie.year = 2013;
+// HTTM['ye' + 'ar'] = 2013;
+// console.log(movie);
+
+// for ( var key in HTTM ){
+//     console.log('The ' + key + ' of the movie is ' + HTTM[key] + '.');
+// }
+
