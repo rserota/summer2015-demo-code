@@ -1,0 +1,14 @@
+syntax: for loop,
+nested for-loop,
+function syntax, definitions, calls, 
+concatenation
+code architecture and organization
+pseudocoding
+all about objects, nested data
+alternate syntaxes( functions, dot-notation vs bracket notation )
+built-in methods ( slice, trim, splice, split, join, parseInt, parseFloat, type checking)
+debugging techniques
+
+
+
+
