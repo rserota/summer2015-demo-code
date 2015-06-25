@@ -1,3 +1,4 @@
+// JQUERY IS JUST A JAVASCRIPT OBJECT
 // var $ = function(){
 //     // 9200 lines of code
 // }
