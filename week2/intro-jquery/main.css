@@ -1,0 +1,13 @@
+.box {
+	height:200px;
+	width:200px;
+	background-color:red;
+}
+
+.box.fancy {
+	background-color:peachpuff;
+	border: 1px solid black;
+	box-shadow: 0 0 10px black;
+}
+
+
