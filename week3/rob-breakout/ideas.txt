@@ -1,0 +1,19 @@
+functions - how to approach a problem
+    pseudocode
+
+using anonymous functions vs named functions
+    
+for loops - how to make them do what you want
+
+utilizing closure
+    step-by-step on inner workings
+
+.sort(), .map()
+    Built in array methods
+
+ternary operators
+  nested?
+
+
+
+
