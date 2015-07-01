@@ -1,0 +1,6 @@
+function syntax review
+callback functions - function definition vs function reference
+ternary operator, other ways to optimize code 
+built-in function methods, map
+
+function scope
