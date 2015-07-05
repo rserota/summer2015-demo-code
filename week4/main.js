@@ -48,5 +48,20 @@ var carlos = {
 var carlosIsHappyToMeetYou = whatsMyName.bind(carlos, true)
 
 
-// The function returned from bind has its arguments bound, so it ignores new arguments. 'hi' does nothing here. 
+// Bound arguments cannot be overridden. 'hi' does nothing here, because we bound true as the first argument. 
 carlosIsHappyToMeetYou('hi')
+
+
+// first deal with browser prefixes
+var getUserMedia = navigator.getUserMedia || 
+    navigator.mozGetUserMedia || 
+    navigator.webkitGetUserMedia;
+// Now `this` no longer refers to navigator.
+
+
+// make sure it's supported and bind to navigator
+if (getUserMedia) {
+    getUserMedia = getUserMedia.bind(navigator);
+} else {
+    console.log('Get user media is not supported.')
+}
