@@ -127,10 +127,3 @@ Quote.prototype.create = function(){
 
 // Append the return value of the create call
 $('body').append( greatQuote.create() )
-
-
-
-
-
-
-
