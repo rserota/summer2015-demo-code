@@ -1,0 +1,18 @@
+#my-template {
+	display: none;
+}
+
+.classy {
+	border:1px solid peachpuff;
+}
+
+.red-text {
+	color : red;
+}
+.blue-text {
+	color : blue;
+}
+
+.green-text {
+	color : green;
+}
