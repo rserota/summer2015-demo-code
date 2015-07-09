@@ -22,4 +22,5 @@ FlyingMonkey.prototype.fly = function(){
 
 var evilGeorge = new FlyingMonkey('George', 'black', 'Enormous')
 console.log(evilGeorge)
+console.log(Object.getPrototypeOf(evilGeorge))
 console.log(evilGeorge.__proto__.__proto__.__proto__) // Object
