@@ -55,5 +55,7 @@ var evilGeorge = new FlyingMonkey('EvilGeorge', 'black', 150) // 150 monkey-unit
 console.log(evilGeorge)
 
 evilGeorge.climb('pine')
-// evilGeorge.fly()
+evilGeorge.fly()
 
+console.log(Object.getPrototypeOf(evilGeorge))
+console.log(evilGeorge.__proto__.__proto__.__proto__) // Object
