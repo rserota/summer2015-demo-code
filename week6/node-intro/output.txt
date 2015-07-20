@@ -1,0 +1,20 @@
+Node is a javascript runtime - it's another environment where javascript can run
+
+Not in a browser, no window, and no DOM.
+No browser-based security restrictions - node.js can access the filesystem, hardware, and network.
+
+There isn't one global scope. Each file has its own scope. We REQUIRE our MODULES into other MODULES.
+
+node REPL - read, eval, print, loop
+
+console.log from a node.js file shows up in terminal.
+
+
+IN CLASS CHALLENGE
+e.g. : node reverse.js 'hello world'
+// should output dlrow olleh
+
+
+IN CLASS CHALLENGE 2
+node copy.js notes.txt
+// should output a file called output.txt
