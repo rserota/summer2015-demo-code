@@ -1,0 +1,62 @@
+extends layout
+
+// Blocks correspond to the block placeholders in our layout file
+// Since this file EXTENDS that layout file, the content we define here
+// will be placed in the corresponding placeholders in layout
+block content
+	h1 Hello Boulder!
+	//- Bracket/Pound sign syntax for variables
+	// We access variables based on the property names of the data object we pass to the render function
+	h3 Visitors so far : #{counter}
+	//- Equal sign syntax for variables
+	// EQUAL SIGN MUST BE UP AGAINST THE TAG NAME
+	h3=counter
+
+block otherContent
+
+	//- Can write pure javascript in our jade to create new vars, etc.
+	// Pure Javascript MUST be prefixed with a hyphen
+	// Ending line must be prefixed with a hyphen as well
+	-var myVar = 'potato';
+	
+	//- Foor loop - javascript
+	-for(var i=1; i<5; i++){
+		if i !== 4
+			li #{i} #{myVar}
+		else
+			li More!
+	-}
+
+	//- Can access our newly created variable above
+	h2 Best Foods Ever! #{myVar}
+	ul
+		//- Foor loop - jade
+		for foodItem in foods
+			//- If / Else logic!
+			if foodItem.name === 'pineapple'
+				li=foodItem.name
+			else
+				li yuck
+
+	//- Our form for submitting data to the server
+	form(action="/submit", method="POST")
+		input(name="food")
+		input(type="submit")
+
+	//- Mixin definition
+	// Like functions in JS, mixins have 2 phases.  Definition and Invocation
+	mixin foodList(food)
+		li #{food.name}
+		if block
+			block
+
+	h1 Even better foods : 
+	ul
+		for foodItem in foods
+			if foodItem.name === 'pineapple'
+				//- Mixin invocation
+				+foodList(foodItem)
+			else
+				//- Mixin invocation
+				+foodList(foodItem)
+					p Vegan
