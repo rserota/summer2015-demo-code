@@ -16,16 +16,19 @@ var foods = [
 
 // Site counter we will pass to the view
 var siteCounter = 1
-
+fs = require('fs');
 // Home route
 app.get('/', function(req, res) {
 	// Render can take 2 arguments
 	// 1- name of template
 	// 2- object that contains data for template
-	res.render('index', {
-		counter : siteCounter,
-		foods   : foods 
-	});
+	fs.readFile('data.txt', function(err, data){
+		console.log(err, data)
+	})
+	// res.render('index', {
+	// 	counter : siteCounter,
+	// 	foods   : foods 
+	// });
 
 	// Increment our site counter - should stay incremented until server restarts
 	siteCounter++
