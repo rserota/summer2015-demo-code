@@ -1,0 +1,9 @@
+jade review
+form submission, GET/POST
+request/response cycle
+Express as a whole
+how app.js relates to other files (jade files, controllers, etc)
+how to order declarations in express, app.js overview
+big picture (what happened to the HTML?)
+asynchronous back-end code
+advanced jade (mixins, etc)
