@@ -1,0 +1,48 @@
+Databases let us save data
+We could save our data with fs, e.g. fs.writeFile, fs.readFile, but this is terrible, because reading/writing files is really really slow.
+
+Databases allow  us to read and write small pieces of data very efficiently and precisely. Good for small pieces of data that change often, like objects and arrays. 
+Databases are not so good for data that is large, and changes rarely, like songs and images.
+
+Two different kinds of databases: SQL, and NoSQL
+
+Traditionally, almost all databases were SQL databases.
+
+- stores data in a flat, tabular(using tables) system, like in a spreadsheet.
+- very structured. You must declare types for each column. The structure you define is your SCHEMA.
+- SQL - Structured Query Language.
+   select * from users where name = raphael or 1=1; // SQL injection exploit
+- SQL databases scale vertically, most commonly.
+- SQL databases CAN scale horizontally, but it's more challenging.
+
+
+NoSQL: Not SQL.
+- few styles (most common key-value store, document-oriented database. Also, graph-based databases)
+- Schema is not enforced by the database. Your application should still enforce a schema, but it can be flexible and allow for dynamic data. 
+- Designed to scaler horizontally, very easily. 
+- Typically faster than a SQL database. Less reliable... maybe.
+- Always used with an API. This way, you don't have to learn another language, and you get some automatic security. One notable exception: mongoose 'where' clause.
+
+MongoDB - HuMONGOus database
+- written in C++, so it's very fast. 
+- uses a flat-file database,
+- data is stored in JSON-like sets. More specifically, Mongo uses BSON - Binary JSON.
+
+
+
+Command-line Mongo
+One database per application.
+`use people` - uses the people database.
+Collections model the same kinds of things a Class would, e.g. people, cats, transactions.
+
+> db.kids.find() // shows nothing, because there are no kids yet.
+> db.kids.find({name:'Alice'}) // only find kids with the name Alice.
+> db.kids.update({name:'Alice'}, {job: 'baby walker'}) // replaces the ENTIRE Alice object
+> db.kids.update({name:'Alice'}, {$set : {job : 'baby walker'}}) // only updates the job field
+> db.kids.update({job:'baby sitter'}, {$set : {job : 'dog walker'}}) // only updates the first baby sitter in the collection
+- other operators: $push, $pull, $inc,
+> db.kids.update({job:'dog walker'}, {$set : {job : 'baby walker'}},{multi:true}) // updates ALL dog walkers, changes them to baby walkers.
+> db.kids.remove({name:'Dan'}) // removes Dan from the database.
+> db.kids.update({name:'Carlos'}, {$set:{clients:[]}})
+> db.kids.update({name:'Carlos'}, {$push: {clients:'Eve'}})
+> db.kids.drop() // removes the entire collection
