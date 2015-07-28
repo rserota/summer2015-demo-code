@@ -12,7 +12,7 @@ $(document).ready(function(){
     var render = function(data){
         $('#tasks').empty()
         data.forEach(function(task){
-            $('#tasks').append('<li data-name="' + task.title +'">'+task.title + ':' + task.description)
+            $('#tasks').append('<li data-id="' + task._id +'">'+task.title + ':' + task.description)
         })
     }
 
@@ -34,7 +34,7 @@ $(document).ready(function(){
     $(document).on('click', 'li', function(){
         $.ajax({
             method  : 'DELETE',
-            url     : '/tasks/'+$(this).attr('data-name'),
+            url     : '/tasks/'+$(this).attr('data-id'),
             data    : null,
             success : render,
             fail    : function(err){console.log(err)}

@@ -23,7 +23,7 @@ router.get('/tasks', function(req, res){
 })
 
 router.delete('/tasks/:whichTask', function(req, res){
-    db.Task.remove({ title: req.params.whichTask }, function(err){
+    db.Task.remove({ _id : req.params.whichTask }, function(err){
         db.Task.find({}, function(err, data){
             res.send(data)
         })
