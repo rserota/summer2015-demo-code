@@ -1,0 +1,26 @@
+extends layout
+
+block content
+	h1 Hello Boulder Liquors
+	hr
+	
+	form#add-liquor
+		input(name="name", placeholder="Name")
+		input(name="proof", placeholder="Proof")
+		input(name="price", placeholder="Price")
+		input(name="age", placeholder="Age")
+		input(name="liquorType", placeholder="liquorType")
+		select(name="region")
+			for region in regions
+				option(value="#{region._id}") #{region.name}
+		input(type="submit")
+		
+	
+	
+	
+	
+	
+	h6 Our Products :
+	hr
+	
+	
