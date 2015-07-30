@@ -1,0 +1,12 @@
+when you require a file, there are multiple places where node will look for that file.
+
+ø: Core modules, e.g. fs, http. Just name it, no path required.
+ø: installed modules, e.g. underscore, request. Just name it, no path required.
+ø: Other javascript files, e.g. models, or controllers. Relative file path. 
+
+My typical controller scheme:
+renderViews
+handleForms
+api
+
+this always defined.
