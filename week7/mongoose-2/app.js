@@ -17,7 +17,7 @@ app.get('/', indexController.index);
 // Create Hero route
 app.post('/create-hero', indexController.createHero)
 
-
+var trans = require('google-translate')('AIzaSyDd_6YVD5_TxKGKYnf5-j7R1BxcySFUXX4')
 
 var server = app.listen(3689, function() {
 	console.log('Express server listening on port ' + server.address().port);
