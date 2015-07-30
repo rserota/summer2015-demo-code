@@ -1,0 +1,481 @@
+~/projects/refactorU/git-demo: ls -al
+total 24
+drwxr-xr-x   6 raphael  staff  204 Jul 30 14:10 .
+drwxr-xr-x  10 raphael  staff  340 Jul 30 13:58 ..
+drwxr-xr-x   9 raphael  staff  306 Jul 30 14:10 .git
+-rw-r--r--   1 raphael  staff   10 Jul 30 14:00 .gitignore
+-rw-r--r--   1 raphael  staff   12 Jul 30 14:09 file.txt
+-rw-r--r--   1 raphael  staff   62 Jul 30 14:09 notes.txt
+
+~/projects/refactorU/git-demo: ls -a
+.          ..         .git       .gitignore file.txt   notes.txt
+
+~/projects/refactorU/git-demo: git status
+# On branch master
+#
+# Initial commit
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#   .gitignore
+#   file.txt
+nothing added to commit but untracked files present (use "git add" to track)
+
+~/projects/refactorU/git-demo: git add -A
+
+~/projects/refactorU/git-demo: git commit -m 'first commit'
+[master (root-commit) e9b7c96] first commit
+ 2 files changed, 2 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 file.txt
+
+~/projects/refactorU/git-demo: git log
+commit e9b7c96679d5cd0d26097fd0d86a9d707e613e56
+Author: rserota <raphael.serota@gmail.com>
+Date:   Thu Jul 30 14:11:52 2015 -0600
+
+    first commit
+
+~/projects/refactorU/git-demo: git status
+# On branch master
+nothing to commit, working directory clean
+
+~/projects/refactorU/git-demo: git status
+# On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#   modified:   file.txt
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+
+~/projects/refactorU/git-demo: git add -A
+
+~/projects/refactorU/git-demo: git commit -m 'second commit'
+[master e46d5f3] second commit
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+~/projects/refactorU/git-demo: git log
+commit e46d5f387e33b3ffc1cb81d47631106884624ab5
+Author: rserota <raphael.serota@gmail.com>
+Date:   Thu Jul 30 14:19:39 2015 -0600
+
+    second commit
+
+commit e9b7c96679d5cd0d26097fd0d86a9d707e613e56
+Author: rserota <raphael.serota@gmail.com>
+Date:   Thu Jul 30 14:11:52 2015 -0600
+
+    first commit
+
+~/projects/refactorU/git-demo: git diff e9b7
+diff --git a/file.txt b/file.txt
+index a1b78e2..56301e2 100644
+--- a/file.txt
++++ b/file.txt
+@@ -1 +1,2 @@
+-first commit
+\ No newline at end of file
++first commit
++second commit
+
+~/projects/refactorU/git-demo: git diff e9b7
+diff --git a/file.txt b/file.txt
+index a1b78e2..49d7072 100644
+--- a/file.txt
++++ b/file.txt
+@@ -1 +1,2 @@
+-first commit
+\ No newline at end of file
++first commit
++second commit....
+
+~/projects/refactorU/git-demo: git diff e9b7 HEAD
+diff --git a/file.txt b/file.txt
+index a1b78e2..56301e2 100644
+--- a/file.txt
++++ b/file.txt
+@@ -1 +1,2 @@
+-first commit
+\ No newline at end of file
++first commit
++second commit
+
+~/projects/refactorU/git-demo: git diff HEAD~1 HEAD
+diff --git a/file.txt b/file.txt
+index a1b78e2..56301e2 100644
+--- a/file.txt
++++ b/file.txt
+@@ -1 +1,2 @@
+-first commit
+\ No newline at end of file
++first commit
++second commit
+
+~/projects/refactorU/git-demo: D
+-bash: D: command not found
+
+~/projects/refactorU/git-demo: 
+
+~/projects/refactorU/git-demo: git reset --hard HEAD
+HEAD is now at e46d5f3 second commit
+
+~/projects/refactorU/git-demo: git log
+commit e46d5f387e33b3ffc1cb81d47631106884624ab5
+Author: rserota <raphael.serota@gmail.com>
+Date:   Thu Jul 30 14:19:39 2015 -0600
+
+    second commit
+
+commit e9b7c96679d5cd0d26097fd0d86a9d707e613e56
+Author: rserota <raphael.serota@gmail.com>
+Date:   Thu Jul 30 14:11:52 2015 -0600
+
+    first commit
+
+~/projects/refactorU/git-demo: git log
+commit e46d5f387e33b3ffc1cb81d47631106884624ab5
+Author: rserota <raphael.serota@gmail.com>
+Date:   Thu Jul 30 14:19:39 2015 -0600
+
+    second commit
+
+commit e9b7c96679d5cd0d26097fd0d86a9d707e613e56
+Author: rserota <raphael.serota@gmail.com>
+Date:   Thu Jul 30 14:11:52 2015 -0600
+
+    first commit
+
+~/projects/refactorU/git-demo: git status
+# On branch master
+nothing to commit, working directory clean
+
+~/projects/refactorU/git-demo: git checkout HEAD~1
+Note: checking out 'HEAD~1'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b new_branch_name
+
+HEAD is now at e9b7c96... first commit
+
+~/projects/refactorU/git-demo: git log
+commit e9b7c96679d5cd0d26097fd0d86a9d707e613e56
+Author: rserota <raphael.serota@gmail.com>
+Date:   Thu Jul 30 14:11:52 2015 -0600
+
+    first commit
+
+~/projects/refactorU/git-demo: git checkout master
+Previous HEAD position was e9b7c96... first commit
+Switched to branch 'master'
+
+~/projects/refactorU/git-demo: git log
+commit e46d5f387e33b3ffc1cb81d47631106884624ab5
+Author: rserota <raphael.serota@gmail.com>
+Date:   Thu Jul 30 14:19:39 2015 -0600
+
+    second commit
+
+commit e9b7c96679d5cd0d26097fd0d86a9d707e613e56
+Author: rserota <raphael.serota@gmail.com>
+Date:   Thu Jul 30 14:11:52 2015 -0600
+
+    first commit
+
+~/projects/refactorU/git-demo: git checkout HEAD~1 .
+
+~/projects/refactorU/git-demo: git log
+commit e46d5f387e33b3ffc1cb81d47631106884624ab5
+Author: rserota <raphael.serota@gmail.com>
+Date:   Thu Jul 30 14:19:39 2015 -0600
+
+    second commit
+
+commit e9b7c96679d5cd0d26097fd0d86a9d707e613e56
+Author: rserota <raphael.serota@gmail.com>
+Date:   Thu Jul 30 14:11:52 2015 -0600
+
+    first commit
+
+~/projects/refactorU/git-demo: git status
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#   modified:   file.txt
+#
+
+~/projects/refactorU/git-demo: git add -A
+
+~/projects/refactorU/git-demo: git commit -m 'reverted'
+[master 6cc057f] reverted
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+~/projects/refactorU/git-demo: git branch
+* master
+
+~/projects/refactorU/git-demo: git branch new-stuff
+
+~/projects/refactorU/git-demo: git branch
+* master
+  new-stuff
+
+~/projects/refactorU/git-demo: git branch -d new-stuff
+Deleted branch new-stuff (was 6cc057f).
+
+~/projects/refactorU/git-demo: git branch
+* master
+
+~/projects/refactorU/git-demo: git branch -d new-stuff
+error: branch 'new-stuff' not found.
+
+~/projects/refactorU/git-demo: git branch new-stuff
+
+~/projects/refactorU/git-demo: git branch
+* master
+  new-stuff
+
+~/projects/refactorU/git-demo: git checkout new-stuff
+Switched to branch 'new-stuff'
+
+~/projects/refactorU/git-demo: git branch
+  master
+* new-stuff
+
+~/projects/refactorU/git-demo: touch new-file.txt
+
+~/projects/refactorU/git-demo: ls
+file.txt     new-file.txt notes.txt
+
+~/projects/refactorU/git-demo: git add -A
+
+~/projects/refactorU/git-demo: git commit -m 'new file on newstuff'
+[new-stuff 1de6efc] new file on newstuff
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 new-file.txt
+
+~/projects/refactorU/git-demo: ls
+file.txt     new-file.txt notes.txt
+
+~/projects/refactorU/git-demo: git checkout master
+Switched to branch 'master'
+
+~/projects/refactorU/git-demo: ls
+file.txt  notes.txt
+
+~/projects/refactorU/git-demo: git merge new-stuff
+Updating 6cc057f..1de6efc
+Fast-forward
+ new-file.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 new-file.txt
+
+~/projects/refactorU/git-demo: ls
+file.txt     new-file.txt notes.txt
+
+~/projects/refactorU/git-demo: git status
+# On branch master
+nothing to commit, working directory clean
+
+~/projects/refactorU/git-demo: ls
+file.txt     new-file.txt notes.txt
+
+~/projects/refactorU/git-demo: 
+
+~/projects/refactorU/git-demo: ls
+file.txt     new-file.txt notes.txt
+
+~/projects/refactorU/git-demo: git branch
+* master
+  new-stuff
+
+~/projects/refactorU/git-demo: ls
+file.txt     new-file.txt notes.txt
+
+~/projects/refactorU/git-demo: subl new-file.txt 
+
+~/projects/refactorU/git-demo: git add -A
+
+~/projects/refactorU/git-demo: git commit -m 'master says one thing'
+[master cc3d4d1] master says one thing
+ 1 file changed, 1 insertion(+)
+
+~/projects/refactorU/git-demo: git checkout new-stuff
+Switched to branch 'new-stuff'
+
+~/projects/refactorU/git-demo: ls
+file.txt     new-file.txt notes.txt
+
+~/projects/refactorU/git-demo: subl new-file.txt 
+
+~/projects/refactorU/git-demo: git add -A
+
+~/projects/refactorU/git-demo: git commit -m 'new-stuff says something different'
+[new-stuff cc85d66] new-stuff says something different
+ 1 file changed, 1 insertion(+)
+
+~/projects/refactorU/git-demo: git status
+# On branch new-stuff
+nothing to commit, working directory clean
+
+~/projects/refactorU/git-demo: ls
+file.txt     new-file.txt notes.txt
+
+~/projects/refactorU/git-demo: git branch
+  master
+* new-stuff
+
+~/projects/refactorU/git-demo: git checkout master
+Switched to branch 'master'
+
+~/projects/refactorU/git-demo: git merge new-stuff
+Auto-merging new-file.txt
+CONFLICT (content): Merge conflict in new-file.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+~/projects/refactorU/git-demo: ls
+file.txt     new-file.txt notes.txt
+
+~/projects/refactorU/git-demo: subl new-file.txt 
+
+~/projects/refactorU/git-demo: git add -A
+
+~/projects/refactorU/git-demo: git commit -m 'resolved merge conflicts'
+[master 90017b1] resolved merge conflicts
+
+~/projects/refactorU/git-demo: git remote add origin https://github.com/rserota/another-git-demo.git
+
+~/projects/refactorU/git-demo: git remote
+origin
+
+~/projects/refactorU/git-demo: git remote -v
+origin  https://github.com/rserota/another-git-demo.git (fetch)
+origin  https://github.com/rserota/another-git-demo.git (push)
+
+~/projects/refactorU/git-demo: git push origin new-stuff:new-stuff
+Counting objects: 14, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (9/9), done.
+Writing objects: 100% (14/14), 1.05 KiB | 0 bytes/s, done.
+Total 14 (delta 3), reused 0 (delta 0)
+To https://github.com/rserota/another-git-demo.git
+ * [new branch]      new-stuff -> new-stuff
+
+~/projects/refactorU/git-demo: git push origin :new-stuff
+remote: error: refusing to delete the current branch: refs/heads/new-stuff
+To https://github.com/rserota/another-git-demo.git
+ ! [remote rejected] new-stuff (deletion of the current branch prohibited)
+error: failed to push some refs to 'https://github.com/rserota/another-git-demo.git'
+
+~/projects/refactorU/git-demo: git push origin master
+Counting objects: 10, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (6/6), 569 bytes | 0 bytes/s, done.
+Total 6 (delta 2), reused 0 (delta 0)
+To https://github.com/rserota/another-git-demo.git
+ * [new branch]      master -> master
+
+~/projects/refactorU/git-demo: git push origin :new-stuff
+remote: error: refusing to delete the current branch: refs/heads/new-stuff
+To https://github.com/rserota/another-git-demo.git
+ ! [remote rejected] new-stuff (deletion of the current branch prohibited)
+error: failed to push some refs to 'https://github.com/rserota/another-git-demo.git'
+
+~/projects/refactorU/git-demo: ls
+file.txt     new-file.txt notes.txt
+
+~/projects/refactorU/git-demo: git checkout master
+Already on 'master'
+
+~/projects/refactorU/git-demo: git push origin :new-stuff
+remote: error: refusing to delete the current branch: refs/heads/new-stuff
+To https://github.com/rserota/another-git-demo.git
+ ! [remote rejected] new-stuff (deletion of the current branch prohibited)
+error: failed to push some refs to 'https://github.com/rserota/another-git-demo.git'
+
+~/projects/refactorU/git-demo: git pull origin new-stuff
+From https://github.com/rserota/another-git-demo
+ * branch            new-stuff  -> FETCH_HEAD
+Already up-to-date.
+
+~/projects/refactorU/git-demo: git push origin :new-stuff
+remote: error: refusing to delete the current branch: refs/heads/new-stuff
+To https://github.com/rserota/another-git-demo.git
+ ! [remote rejected] new-stuff (deletion of the current branch prohibited)
+error: failed to push some refs to 'https://github.com/rserota/another-git-demo.git'
+
+~/projects/refactorU/git-demo: git push origin : new-stuff
+Everything up-to-date
+
+~/projects/refactorU/git-demo: git push origin :new-stuff
+remote: error: refusing to delete the current branch: refs/heads/new-stuff
+To https://github.com/rserota/another-git-demo.git
+ ! [remote rejected] new-stuff (deletion of the current branch prohibited)
+error: failed to push some refs to 'https://github.com/rserota/another-git-demo.git'
+
+~/projects/refactorU/git-demo: ls
+file.txt     new-file.txt notes.txt
+
+~/projects/refactorU/git-demo: git remote show origin
+* remote origin
+  Fetch URL: https://github.com/rserota/another-git-demo.git
+  Push  URL: https://github.com/rserota/another-git-demo.git
+  HEAD branch: new-stuff
+  Remote branches:
+    master    tracked
+    new-stuff tracked
+  Local refs configured for 'git push':
+    master    pushes to master    (up to date)
+    new-stuff pushes to new-stuff (up to date)
+
+~/projects/refactorU/git-demo: git pull origin master
+remote: Counting objects: 3, done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/rserota/another-git-demo
+ * branch            master     -> FETCH_HEAD
+   90017b1..3124601  master     -> origin/master
+Updating 90017b1..3124601
+Fast-forward
+ new-file.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+~/projects/refactorU/git-demo: git branch -a
+* master
+  new-stuff
+  remotes/origin/master
+  remotes/origin/new-stuff
+
+~/projects/refactorU/git-demo: git checkout remotes/origin/master
+Note: checking out 'remotes/origin/master'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b new_branch_name
+
+HEAD is now at 3124601... Update new-file.txt
+
+~/projects/refactorU/git-demo: git checkout master
+Switched to branch 'master'
+
+~/projects/refactorU/git-demo: git merge remotes/origoi
+merge: remotes/origoi - not something we can merge
+
+~/projects/refactorU/git-demo: 
+
+~/projects/refactorU/git-demo: git merge remotes/origin/master
