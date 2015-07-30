@@ -8,7 +8,6 @@ router.get('/', function(req, res) {
     res.render('index');
 });
 
-
 router.post('/tasks', function(req, res){
     console.log(req.body)
     var newTask = new db.Task(req.body)
