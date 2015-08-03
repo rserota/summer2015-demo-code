@@ -1,0 +1,31 @@
+doctype html
+html(lang='en', ng-app="App")
+	head
+		meta(charset="utf-8")
+		title Angular!
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular.min.js")
+
+	body(ng-cloak)
+
+		#app-container(ng-controller="foodController")
+			h1(title) {{foodService.message}}
+			//- h3 {{bestFood}}
+			//- input(placeholder="New Best Food", ng-model="bestFood", ng-keyup="lookAtFood(bestFood)")
+			//- h3 This is the worst food : {{worstFood}}
+			
+			.food-item(ng-repeat="food in foods")
+				h3 {{food.name}}
+				h6 {{food.price}}
+
+			//- for food in foods
+			
+
+			h6 {{foodFactory.message}}
+
+			food
+
+		//- div(ng-app="ClientSite")
+		//- div(ng-app="BackendTool")
+
+
+		script(src="main.js")
