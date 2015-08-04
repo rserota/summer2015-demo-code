@@ -17,20 +17,49 @@ cryptApp.factory('animalFactory', function($resource){
 	// this._id
 	// @_id
 
-	// model.query()
-	// model.$save()
+	// model.query() // GET - /api/animals
+	// model.get()
+	// model.$save() // POST - /api/animals
 	// model.$delete()
-
+	// model.get({id : ObjectId('5483292394823')}) // GET - /api/animals/5483292394823
 	return {
 		model   : model,
-		animals :
+		animals : model.query() // GET - /api/animals
 	}
 
 
 });
 
+// $.ajax({
+// 	url : '/api/animals',
+// 	method : 'GET',
+// 	success : function(returnData){}
+// })
+
+// $.ajax({
+// 	url : '/api/animals',
+// 	method : 'POST',
+// 	data : {asasdad}
+// })
+
 
 // cryptAnimalList Controller
-cryptApp.controller('cryptAnimalList', function($scope){
-	console.log('I AM THE CONTROLLER');
+cryptApp.controller('cryptAnimalList', function($scope, animalFactory){
+	console.log('I AM THE CONTROLLER', animalFactory);
+
+	$scope.animals = animalFactory.animals;
+
+	$scope.addAnimal = function(){
+		console.log(this.newAnimal);
+		var newCryptAnimal = new animalFactory.model(this.newAnimal);
+
+		newCryptAnimal.$save(function(returnData){
+			// console.log('return', returnData)
+			animalFactory.animals.push(returnData);
+		});
+
+		this.newAnimal = {};
+
+	}
+
 });

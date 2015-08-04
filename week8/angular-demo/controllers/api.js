@@ -14,6 +14,7 @@ var apiController = {
 
 	create : function(req, res){
 		req.body.componentAnimals = req.body.componentAnimals.split(', ');
+		// console.log('!!!!!', req.body)
 		
 		var animal = new CryptAnimal(req.body);
 		animal.save(function(err, doc){
