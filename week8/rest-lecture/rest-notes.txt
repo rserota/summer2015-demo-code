@@ -1,0 +1,51 @@
+REST - REpresentational State Transfer
+
+REST is NOT a specific tool, protocol, or library.
+
+
+REST APIs are stateless. All information needed to satisfy an individual request must be included in that request.
+
+REST APIs typically respond with JSON data. 
+
+The most important factor in choosing which verb to use is idempotency
+An action is idempotent if performing that action once has the same effect as performing it many times
+
+GET
+    GET requests should be idempotent.
+    GET requests are also safe.
+    Typically used for retrieving data
+    GET /users // should return all users from the database
+    GET /users/alice // should return information about alice
+
+
+PUT
+    PUT requests are also idempotent
+    Typically used for updating/modifying a resource
+    PUT /users/alice  // body of put request specifies what to change about alice.
+
+DELETE
+    DELETE requests are also idempotent
+    Typically used for deleting a resource
+    DELETE /users/alice // should delete alice from the database.
+
+
+POST
+    POST requests are not idempotent
+    Typically used for creating resources, can also be used to update resources
+    POST /users // request body specifies details about the new user, but not a unique ID. Duplicate requests create duplicate database entries.
+    POST /accounts/Bob // request body could specify {deposit: '$100'}. Not idempotent, since duplicate requests will continue to deposit more money. 
+
+
+The URL should have nouns, not verbs. 
+POST /users/delete/Carlos // This is NOT restful.
+DELETE /users/Carlos // Much better.
+
+When to use REST?
+REST is used to make resources available to clients.
+Not all HTTP verbs make sense for every resource. 
+
+Dropbox 
+GET /delta/ // additional details specified in query string. 
+REPORT /delta // REPORT is safe, like get, but also has a body. Problem is that nobody knows about the REPORT method, and lots of software doesn't support it.
+
+POST /delta // Not perfectly restful, but easy enough to understand.
