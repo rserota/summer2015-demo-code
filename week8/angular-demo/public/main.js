@@ -1,5 +1,8 @@
 // Create a module
-var cryptApp = angular.module('cryptApp', ['ngResource', 'ngRoute']);
+var cryptApp = angular.module('cryptApp', [
+	'ngResource', 
+	'ngRoute'
+]);
 
 // Route provider to control what controllers / views are used at a specific route
 cryptApp.config(function($routeProvider){
@@ -8,6 +11,12 @@ cryptApp.config(function($routeProvider){
 			templateUrl : '/templates/cryptanimallist',
 			controller  : 'cryptAnimalList'
 		})
+		.when('/animals/:id', {
+			templateUrl : '/templates/cryptanimal',
+			controller  : 'cryptAnimalPage'
+			
+		})
+		// // http://mywebsite.com/#/about
 
 });
 
@@ -40,9 +49,19 @@ cryptApp.factory('animalFactory', function($resource){
 cryptApp.controller('cryptAnimalList', function($scope, animalFactory){
 	console.log('I AM THE CONTROLLER', animalFactory);
 
+	$scope.lowCal = function(animal){
+		return animal.calories < 1000
+	}
+	$scope.bulkUp = function(animal){
+		return animal.calories > 1000
+	}
+
+
 	// List of all of our animals returned from animalFactory.animals
 	$scope.animals = animalFactory.animals;
-
+	// $scope.animals.filter(function(animal){
+	// 	return animal.calories < 1000
+	// })
 	// AddAnimal function being called on a submit event in our template's form
 	$scope.addAnimal = function(){
 		// console.log(this.newAnimal);
@@ -54,11 +73,12 @@ cryptApp.controller('cryptAnimalList', function($scope, animalFactory){
 		// Want to initiate the $save method
 		// This POSTS to /api/animals which will use the newCryptAnimal data to create a new database document
 		newCryptAnimal.$save(function(returnData){
-			// console.log('return', returnData)
+			console.log('return', returnData)
 
 			// After we receive the saved document from the server, we will push it into our list of animals
 			// This allows the front-end to update immediately
 			animalFactory.animals.push(returnData);
+			console.log(animalFactory.animals);
 		});
 
 		// Our form inputs are modeling this object, by setting it back to an empty object, 
@@ -66,5 +86,17 @@ cryptApp.controller('cryptAnimalList', function($scope, animalFactory){
 		this.newAnimal = {};
 
 	}
+
+});
+
+
+cryptApp.controller('cryptAnimalPage', function($scope, animalFactory, $routeParams){
+	// /something/:cheeseName
+	// /something/cheddar
+	// req.params.cheeseName
+	console.log('Animal with this id : ', $routeParams.id);
+
+	$scope.animal = animalFactory.model.get({_id : $routeParams.id})
+
 
 });

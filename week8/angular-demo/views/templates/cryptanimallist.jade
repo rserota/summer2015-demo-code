@@ -10,9 +10,15 @@ form(ng-submit="addAnimal()")
 
 	input(type="submit")
 
+select(ng-model="sortOrder", ng-options="option.val as option.name for option in [{name : 'Ascending', val : false}, {name : 'Descending', val : true}]")
+	//- option(value="true") Ascending
+	//- option(value="false") Descending
+	//- o.v as o.n for o in [{ n: 'Not included', v: false }, { n: 'Included', v: true }]
+
 .animal-list
-	.animal(ng-repeat="animal in animals")
-		h4 {{animal.name}}
+	.animal(ng-repeat="animal in animals | orderBy:'calories':sortOrder")
+		a(ng-href="#/animals/{{animal._id}}")
+			h4 {{ animal.name }}
 		p Coloring in the wild : {{animal.coloring}}
 		p Calories in this tasty animal : {{animal.calories}}
 		ul

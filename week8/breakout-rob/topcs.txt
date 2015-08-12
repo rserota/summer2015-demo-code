@@ -1,0 +1,6 @@
+Angular
+  Components
+  Flow
+  $scope hierarchy
+  how they fit together
+  backend
